@@ -1,9 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+import AddToCartDetailed from '../components/AddToCartDetailed';
+import CartButton from '../components/CartButton';
+import CustomerReview from '../components/CustomerReview';
 import ProductAttributes from '../components/ProductAttributes';
 import { getProductById } from '../services/api';
-import CartButton from '../components/CartButton';
-import AddToCartDetailed from '../components/AddToCartDetailed';
 
 class ProductDetail extends React.Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class ProductDetail extends React.Component {
   }
 
   render() {
+    const { match: { params: { id } } } = this.props;
     const { details: {
       title,
       attributes,
@@ -46,6 +48,7 @@ class ProductDetail extends React.Component {
           && <p data-testid="free-shipping" className="text-success">Frete Grátis</p> }
           <CartButton />
           <AddToCartDetailed details={ details } />
+          <CustomerReview productID={ id } />
         </div>
         { !attributes ? <p>Carregando...</p>
           : (

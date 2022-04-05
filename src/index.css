@@ -28,3 +28,11 @@ code {
 .header {
   min-height: 20vh;
 }
+
+.rating input[type="radio"] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+}

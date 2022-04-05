@@ -4,6 +4,7 @@ import Categories from '../components/Categories';
 import CartButton from '../components/CartButton';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import { readShoppingCart } from '../services/cart';
+import { readCustomerReview } from '../services/review';
 
 class Home extends Component {
   constructor() {
@@ -18,6 +19,7 @@ class Home extends Component {
 
   componentDidMount() {
     readShoppingCart();
+    readCustomerReview();
   }
 
   handleChange = ({ target }) => {
